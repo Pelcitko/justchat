@@ -3,7 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
 DEBUG = True
-ALLOWED_HOSTS = ['justdjango-chat.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['young-bastion-76570.herokuapp.com/', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -75,14 +75,17 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', }
+    # {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+    # {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+    # {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    # {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', }
 ]
 
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'cs-cz'
+
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Prague'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -111,6 +114,6 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 CSRF_COOKIE_NAME = "csrftoken"
 
-HOST_URL = 'https://justdjango-chat.herokuapp.com'
-if DEBUG:
-    HOST_URL = 'http://127.0.0.1:8000'
+HOST_URL = 'https://young-bastion-76570.herokuapp.com/'
+# if DEBUG:
+#     HOST_URL = 'http://127.0.0.1:8000'
