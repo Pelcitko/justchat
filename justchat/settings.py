@@ -1,9 +1,11 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
-DEBUG = True
-ALLOWED_HOSTS = ['young-bastion-76570.herokuapp.com/', '127.0.0.1']
+# SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
+SECRET_KEY = os.environ.get("SECRET_KEY", "".join(random.choice(string.printable) for i in range(50)))
+DEBUG = os.environ.get("DEBUG", False)
+# ALLOWED_HOSTS = ['young-bastion-76570.herokuapp.com/', 'pwa-3609.rostiapp.cz', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -62,8 +64,10 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            # "hosts": [('127.0.0.1', 6379)],
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
+        # "ROUTING": "chat.routing.channel_routing",
     },
 }
 
@@ -108,12 +112,15 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = ('localhost:3000')
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000',
+    '127.0.0.1:3000',
+    )
 ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 CSRF_COOKIE_NAME = "csrftoken"
 
 HOST_URL = 'https://young-bastion-76570.herokuapp.com/'
-# if DEBUG:
-#     HOST_URL = 'http://127.0.0.1:8000'
+if DEBUG:
+    HOST_URL = 'http://127.0.0.1:8000'
