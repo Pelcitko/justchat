@@ -1,8 +1,12 @@
 import os
+import random
+import string
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECRET_KEY = '9nneu#^7_aai*(#(6_qiihu-^k-+%a86&vjh=_i9#(c4^8s51n'
-SECRET_KEY = os.environ.get("SECRET_KEY", "".join(random.choice(string.printable) for i in range(50)))
+# SECRET_KEY = os.environ.get("SECRET_KEY", "".join(random.choice(string.printable) for i in range(50)))
+SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", False)
 # ALLOWED_HOSTS = ['young-bastion-76570.herokuapp.com/', 'pwa-3609.rostiapp.cz', '127.0.0.1', 'localhost']
 ALLOWED_HOSTS = []
@@ -72,11 +76,16 @@ CHANNEL_LAYERS = {
 }
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config(default="postgres:///channels-example", conn_max_age=500)
 }
+
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     # {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
