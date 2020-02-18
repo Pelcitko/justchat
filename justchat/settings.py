@@ -81,9 +81,9 @@ CHANNEL_LAYERS = {
 }
 
 DATABASES = {
-    'default': dj_database_url.config(default="postgres:///channels-example", conn_max_age=500)
+    'default': dj_database_url.config(default="postgres://gdxfrdnzfnvpxl:7cc1937114242f046d2014423288e7a8bd3d99a5f5d10f9d7b51209dbc035fac@ec2-184-72-236-57.compute-1.amazonaws.com:5432/d9dv3r9ilskj45",
+        conn_max_age=500)
 }
-
 if DEBUG:
     DATABASES = {
         'default': {
