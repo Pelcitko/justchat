@@ -127,7 +127,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
-CORS_ORIGIN_WHITELIST = ('*')
+# CORS_ORIGIN_WHITELIST = ('*')
 # CORS_ORIGIN_WHITELIST = (
 #     'localhost:3000',
 #     '127.0.0.1:3000',
