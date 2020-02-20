@@ -9,8 +9,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", True)
 # Allow all host headers
-# ALLOWED_HOSTS = ['young-bastion-76570.herokuapp.com/', 'pwa-3609.rostiapp.cz', '127.0.0.1', 'localhost']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['young-bastion-76570.herokuapp.com/', 'pwa-3609.rostiapp.cz', '127.0.0.1', 'localhost']
+# ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = ['*']
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
